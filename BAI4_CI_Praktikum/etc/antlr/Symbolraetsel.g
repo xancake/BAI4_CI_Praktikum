@@ -8,8 +8,8 @@ tokens {
 	VALUE;
 }
 
-@header {package org.haw.cip.praktikum3;}
-@lexer::header {package org.haw.cip.praktikum3;}
+@header {package org.haw.cip.praktikum3.symbolraetsel;}
+@lexer::header {package org.haw.cip.praktikum3.symbolraetsel;}
 
 riddle 	:	a1=value a1h=op a2=value EQ a3=value
 		a1v=op a2v=op a3v=op

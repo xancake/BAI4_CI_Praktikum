@@ -1,4 +1,4 @@
-package org.haw.cip.praktikum3;
+package org.haw.cip.praktikum3.symbolraetsel;
 
 import java.io.File;
 import java.io.FileInputStream;

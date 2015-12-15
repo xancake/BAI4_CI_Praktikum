@@ -10,7 +10,7 @@ tokens {
 	VALUE;
 }
 
-@header {package org.haw.cip.praktikum3;}
+@header {package org.haw.cip.praktikum3.symbolraetsel;}
 
 riddle	:	task task task task task task;
 task	:	^(EQ ^(ADD value value) value)

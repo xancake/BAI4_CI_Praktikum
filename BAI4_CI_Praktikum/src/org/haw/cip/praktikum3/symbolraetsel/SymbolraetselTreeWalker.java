@@ -1,5 +1,5 @@
 // $ANTLR 3.4 D:\\Dropbox\\Studium\\Semester 4\\Compiler und Interpreter\\Praktikum\\Praktikum 3\\1. symbolraetsel\\SymbolraetselTreeWalker.g 2015-12-15 13:30:56
-package org.haw.cip.praktikum3;
+package org.haw.cip.praktikum3.symbolraetsel;
 
 import org.antlr.runtime.*;
 import org.antlr.runtime.tree.*;
