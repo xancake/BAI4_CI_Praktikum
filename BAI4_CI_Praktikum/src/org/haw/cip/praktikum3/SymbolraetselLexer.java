@@ -1,5 +1,5 @@
+// $ANTLR 3.4 D:\\Dropbox\\Studium\\Semester 4\\Compiler und Interpreter\\Praktikum\\Praktikum 3\\1. symbolraetsel\\Symbolraetsel.g 2015-12-15 13:07:39
 package org.haw.cip.praktikum3;
-// $ANTLR 3.4 Z:\\pub\\Semester 4\\Compiler und Interpreter\\Praktikum\\Praktikum 2\\1. symbolraetsel\\symbolraetsel_besser.g 2015-11-26 12:35:02
 
 import org.antlr.runtime.*;
 import java.util.Stack;
@@ -9,11 +9,12 @@ import java.util.ArrayList;
 @SuppressWarnings({"all", "warnings", "unchecked"})
 public class SymbolraetselLexer extends Lexer {
     public static final int EOF=-1;
-    public static final int EQ=4;
-    public static final int OP=5;
-    public static final int VALUE=6;
-    public static final int VALUELETTER=7;
-    public static final int WS=8;
+    public static final int ADD=4;
+    public static final int EQ=5;
+    public static final int SUB=6;
+    public static final int SYMBOL=7;
+    public static final int VALUE=8;
+    public static final int WS=9;
 
     // delegates
     // delegators
@@ -28,15 +29,15 @@ public class SymbolraetselLexer extends Lexer {
     public SymbolraetselLexer(CharStream input, RecognizerSharedState state) {
         super(input,state);
     }
-    public String getGrammarFileName() { return "Z:\\pub\\Semester 4\\Compiler und Interpreter\\Praktikum\\Praktikum 2\\1. symbolraetsel\\symbolraetsel_besser.g"; }
+    public String getGrammarFileName() { return "D:\\Dropbox\\Studium\\Semester 4\\Compiler und Interpreter\\Praktikum\\Praktikum 3\\1. symbolraetsel\\Symbolraetsel.g"; }
 
-    // $ANTLR start "VALUELETTER"
-    public final void mVALUELETTER() throws RecognitionException {
+    // $ANTLR start "SYMBOL"
+    public final void mSYMBOL() throws RecognitionException {
         try {
-            int _type = VALUELETTER;
+            int _type = SYMBOL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Z:\\pub\\Semester 4\\Compiler und Interpreter\\Praktikum\\Praktikum 2\\1. symbolraetsel\\symbolraetsel_besser.g:27:13: ( ( 'A' .. 'Z' ) )
-            // Z:\\pub\\Semester 4\\Compiler und Interpreter\\Praktikum\\Praktikum 2\\1. symbolraetsel\\symbolraetsel_besser.g:
+            // D:\\Dropbox\\Studium\\Semester 4\\Compiler und Interpreter\\Praktikum\\Praktikum 3\\1. symbolraetsel\\Symbolraetsel.g:31:8: ( ( 'A' .. 'Z' ) )
+            // D:\\Dropbox\\Studium\\Semester 4\\Compiler und Interpreter\\Praktikum\\Praktikum 3\\1. symbolraetsel\\Symbolraetsel.g:
             {
             if ( (input.LA(1) >= 'A' && input.LA(1) <= 'Z') ) {
                 input.consume();
@@ -57,25 +58,17 @@ public class SymbolraetselLexer extends Lexer {
         	// do for sure before leaving
         }
     }
-    // $ANTLR end "VALUELETTER"
+    // $ANTLR end "SYMBOL"
 
-    // $ANTLR start "OP"
-    public final void mOP() throws RecognitionException {
+    // $ANTLR start "ADD"
+    public final void mADD() throws RecognitionException {
         try {
-            int _type = OP;
+            int _type = ADD;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Z:\\pub\\Semester 4\\Compiler und Interpreter\\Praktikum\\Praktikum 2\\1. symbolraetsel\\symbolraetsel_besser.g:28:5: ( ( '+' | '-' ) )
-            // Z:\\pub\\Semester 4\\Compiler und Interpreter\\Praktikum\\Praktikum 2\\1. symbolraetsel\\symbolraetsel_besser.g:
+            // D:\\Dropbox\\Studium\\Semester 4\\Compiler und Interpreter\\Praktikum\\Praktikum 3\\1. symbolraetsel\\Symbolraetsel.g:32:6: ( '+' )
+            // D:\\Dropbox\\Studium\\Semester 4\\Compiler und Interpreter\\Praktikum\\Praktikum 3\\1. symbolraetsel\\Symbolraetsel.g:32:8: '+'
             {
-            if ( input.LA(1)=='+'||input.LA(1)=='-' ) {
-                input.consume();
-            }
-            else {
-                MismatchedSetException mse = new MismatchedSetException(null,input);
-                recover(mse);
-                throw mse;
-            }
-
+            match('+'); 
 
             }
 
@@ -86,15 +79,36 @@ public class SymbolraetselLexer extends Lexer {
         	// do for sure before leaving
         }
     }
-    // $ANTLR end "OP"
+    // $ANTLR end "ADD"
+
+    // $ANTLR start "SUB"
+    public final void mSUB() throws RecognitionException {
+        try {
+            int _type = SUB;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // D:\\Dropbox\\Studium\\Semester 4\\Compiler und Interpreter\\Praktikum\\Praktikum 3\\1. symbolraetsel\\Symbolraetsel.g:33:6: ( '-' )
+            // D:\\Dropbox\\Studium\\Semester 4\\Compiler und Interpreter\\Praktikum\\Praktikum 3\\1. symbolraetsel\\Symbolraetsel.g:33:8: '-'
+            {
+            match('-'); 
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        	// do for sure before leaving
+        }
+    }
+    // $ANTLR end "SUB"
 
     // $ANTLR start "EQ"
     public final void mEQ() throws RecognitionException {
         try {
             int _type = EQ;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Z:\\pub\\Semester 4\\Compiler und Interpreter\\Praktikum\\Praktikum 2\\1. symbolraetsel\\symbolraetsel_besser.g:29:5: ( '=' )
-            // Z:\\pub\\Semester 4\\Compiler und Interpreter\\Praktikum\\Praktikum 2\\1. symbolraetsel\\symbolraetsel_besser.g:29:7: '='
+            // D:\\Dropbox\\Studium\\Semester 4\\Compiler und Interpreter\\Praktikum\\Praktikum 3\\1. symbolraetsel\\Symbolraetsel.g:34:5: ( '=' )
+            // D:\\Dropbox\\Studium\\Semester 4\\Compiler und Interpreter\\Praktikum\\Praktikum 3\\1. symbolraetsel\\Symbolraetsel.g:34:7: '='
             {
             match('='); 
 
@@ -114,8 +128,8 @@ public class SymbolraetselLexer extends Lexer {
         try {
             int _type = WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Z:\\pub\\Semester 4\\Compiler und Interpreter\\Praktikum\\Praktikum 2\\1. symbolraetsel\\symbolraetsel_besser.g:31:5: ( ( ' ' | '\\t' | '\\r' | '\\n' ) )
-            // Z:\\pub\\Semester 4\\Compiler und Interpreter\\Praktikum\\Praktikum 2\\1. symbolraetsel\\symbolraetsel_besser.g:31:9: ( ' ' | '\\t' | '\\r' | '\\n' )
+            // D:\\Dropbox\\Studium\\Semester 4\\Compiler und Interpreter\\Praktikum\\Praktikum 3\\1. symbolraetsel\\Symbolraetsel.g:36:5: ( ( ' ' | '\\t' | '\\r' | '\\n' ) )
+            // D:\\Dropbox\\Studium\\Semester 4\\Compiler und Interpreter\\Praktikum\\Praktikum 3\\1. symbolraetsel\\Symbolraetsel.g:36:9: ( ' ' | '\\t' | '\\r' | '\\n' )
             {
             if ( (input.LA(1) >= '\t' && input.LA(1) <= '\n')||input.LA(1)=='\r'||input.LA(1)==' ' ) {
                 input.consume();
@@ -141,8 +155,8 @@ public class SymbolraetselLexer extends Lexer {
     // $ANTLR end "WS"
 
     public void mTokens() throws RecognitionException {
-        // Z:\\pub\\Semester 4\\Compiler und Interpreter\\Praktikum\\Praktikum 2\\1. symbolraetsel\\symbolraetsel_besser.g:1:8: ( VALUELETTER | OP | EQ | WS )
-        int alt1=4;
+        // D:\\Dropbox\\Studium\\Semester 4\\Compiler und Interpreter\\Praktikum\\Praktikum 3\\1. symbolraetsel\\Symbolraetsel.g:1:8: ( SYMBOL | ADD | SUB | EQ | WS )
+        int alt1=5;
         switch ( input.LA(1) ) {
         case 'A':
         case 'B':
@@ -175,14 +189,18 @@ public class SymbolraetselLexer extends Lexer {
             }
             break;
         case '+':
-        case '-':
             {
             alt1=2;
             }
             break;
-        case '=':
+        case '-':
             {
             alt1=3;
+            }
+            break;
+        case '=':
+            {
+            alt1=4;
             }
             break;
         case '\t':
@@ -190,7 +208,7 @@ public class SymbolraetselLexer extends Lexer {
         case '\r':
         case ' ':
             {
-            alt1=4;
+            alt1=5;
             }
             break;
         default:
@@ -203,31 +221,39 @@ public class SymbolraetselLexer extends Lexer {
 
         switch (alt1) {
             case 1 :
-                // Z:\\pub\\Semester 4\\Compiler und Interpreter\\Praktikum\\Praktikum 2\\1. symbolraetsel\\symbolraetsel_besser.g:1:10: VALUELETTER
+                // D:\\Dropbox\\Studium\\Semester 4\\Compiler und Interpreter\\Praktikum\\Praktikum 3\\1. symbolraetsel\\Symbolraetsel.g:1:10: SYMBOL
                 {
-                mVALUELETTER(); 
+                mSYMBOL(); 
 
 
                 }
                 break;
             case 2 :
-                // Z:\\pub\\Semester 4\\Compiler und Interpreter\\Praktikum\\Praktikum 2\\1. symbolraetsel\\symbolraetsel_besser.g:1:22: OP
+                // D:\\Dropbox\\Studium\\Semester 4\\Compiler und Interpreter\\Praktikum\\Praktikum 3\\1. symbolraetsel\\Symbolraetsel.g:1:17: ADD
                 {
-                mOP(); 
+                mADD(); 
 
 
                 }
                 break;
             case 3 :
-                // Z:\\pub\\Semester 4\\Compiler und Interpreter\\Praktikum\\Praktikum 2\\1. symbolraetsel\\symbolraetsel_besser.g:1:25: EQ
+                // D:\\Dropbox\\Studium\\Semester 4\\Compiler und Interpreter\\Praktikum\\Praktikum 3\\1. symbolraetsel\\Symbolraetsel.g:1:21: SUB
+                {
+                mSUB(); 
+
+
+                }
+                break;
+            case 4 :
+                // D:\\Dropbox\\Studium\\Semester 4\\Compiler und Interpreter\\Praktikum\\Praktikum 3\\1. symbolraetsel\\Symbolraetsel.g:1:25: EQ
                 {
                 mEQ(); 
 
 
                 }
                 break;
-            case 4 :
-                // Z:\\pub\\Semester 4\\Compiler und Interpreter\\Praktikum\\Praktikum 2\\1. symbolraetsel\\symbolraetsel_besser.g:1:28: WS
+            case 5 :
+                // D:\\Dropbox\\Studium\\Semester 4\\Compiler und Interpreter\\Praktikum\\Praktikum 3\\1. symbolraetsel\\Symbolraetsel.g:1:28: WS
                 {
                 mWS(); 
 
