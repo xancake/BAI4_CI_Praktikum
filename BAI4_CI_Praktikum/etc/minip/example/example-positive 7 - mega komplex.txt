@@ -1,0 +1,40 @@
+program
+	integer a,b,c;
+	boolean isKorrekt, isFalsch;
+	real pi;
+begin
+	read(a);
+	b := a+2-2.5+-1+2*3/b;
+	
+	// Komische Sachen machen
+	if a<10 then
+		if a<5 then
+			a := 5;
+			b := a;
+		fi
+		c := a+b;
+	else
+		/*
+			Dass "Korrekt" "Falsch" ist hat schon seinen Sinn!
+			Das liegt daran, dass der Else-Zweig bei einer Eingabe
+			vorhanden sein muss. So what?
+		*/
+		isKorrekt := isFalsch;
+	fi
+	
+	while a<10 do
+		a := a+1;
+		if b>c then
+			read(b);
+			b := a*-2+(-c-3);
+		else
+			read(c);
+			if isKorrekt=isFalsch then
+				println('c = ');
+				println(c);
+			fi
+		fi
+		println('a = ');
+		println(a);
+	od
+end

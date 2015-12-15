@@ -1,0 +1,14 @@
+program
+	integer a,b,c;
+	boolean isKorrekt, isFalsch;
+	real pi;
+	string name1, name2;
+begin
+	a := 1;
+	b := 2;
+	pi := 3.141;
+	name1 := 'Lars';
+	name2 := 'Nielsen';
+	isFalsch := false;
+	isKorrekt := pi >= a;
+end

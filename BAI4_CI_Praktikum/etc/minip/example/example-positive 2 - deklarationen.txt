@@ -1,0 +1,8 @@
+program
+	integer a,b,c;
+	boolean isKorrekt;
+	real pi;
+	string name1, name2;
+begin
+	
+end

@@ -1,0 +1,17 @@
+program
+	integer a,b,c,d;
+	boolean isKorrekt, isFalsch;
+	real pi;
+	string text;
+begin
+	pi := 3.141;
+	d := (5);
+	d := -(5);
+	d := (-5);
+	a := 1+2-3;
+	b := 1*2/3;
+	c := 1+2*(3-4);
+	text := 'a1! b2_ c3#';
+	isKorrekt := pi >= 3;
+	isFalsch := 3 < pi;
+end
