@@ -14,21 +14,21 @@ public class ConstraintSolverExample {
 		Model model = new CPModel();
 		
 		// Declare every letter as a variable
-		IntegerVariable d = Choco.makeIntVar("d", 0, 9, new String[]{Options.V_ENUM});
-		IntegerVariable o = Choco.makeIntVar("o", 0, 9, new String[]{Options.V_ENUM});
-		IntegerVariable n = Choco.makeIntVar("n", 0, 9, new String[]{Options.V_ENUM});
-		IntegerVariable a = Choco.makeIntVar("a", 0, 9, new String[]{Options.V_ENUM});
-		IntegerVariable l = Choco.makeIntVar("l", 0, 9, new String[]{Options.V_ENUM});
-		IntegerVariable g = Choco.makeIntVar("g", 0, 9, new String[]{Options.V_ENUM});
-		IntegerVariable e = Choco.makeIntVar("e", 0, 9, new String[]{Options.V_ENUM});
-		IntegerVariable r = Choco.makeIntVar("r", 0, 9, new String[]{Options.V_ENUM});
-		IntegerVariable b = Choco.makeIntVar("b", 0, 9, new String[]{Options.V_ENUM});
-		IntegerVariable t = Choco.makeIntVar("t", 0, 9, new String[]{Options.V_ENUM});
+		IntegerVariable d = Choco.makeIntVar("d", 0, 9, Options.V_ENUM);
+		IntegerVariable o = Choco.makeIntVar("o", 0, 9, Options.V_ENUM);
+		IntegerVariable n = Choco.makeIntVar("n", 0, 9, Options.V_ENUM);
+		IntegerVariable a = Choco.makeIntVar("a", 0, 9, Options.V_ENUM);
+		IntegerVariable l = Choco.makeIntVar("l", 0, 9, Options.V_ENUM);
+		IntegerVariable g = Choco.makeIntVar("g", 0, 9, Options.V_ENUM);
+		IntegerVariable e = Choco.makeIntVar("e", 0, 9, Options.V_ENUM);
+		IntegerVariable r = Choco.makeIntVar("r", 0, 9, Options.V_ENUM);
+		IntegerVariable b = Choco.makeIntVar("b", 0, 9, Options.V_ENUM);
+		IntegerVariable t = Choco.makeIntVar("t", 0, 9, Options.V_ENUM);
 		
 		// Declare every name as a variable
-		IntegerVariable donald = Choco.makeIntVar("donald", 0, 1000000,  new String[]{Options.V_BOUND});
-		IntegerVariable gerald = Choco.makeIntVar("gerald", 0, 1000000,  new String[]{Options.V_BOUND});
-		IntegerVariable robert = Choco.makeIntVar("robert", 0, 1000000,  new String[]{Options.V_BOUND});
+		IntegerVariable donald = Choco.makeIntVar("donald", 0, 1000000, Options.V_BOUND);
+		IntegerVariable gerald = Choco.makeIntVar("gerald", 0, 1000000, Options.V_BOUND);
+		IntegerVariable robert = Choco.makeIntVar("robert", 0, 1000000, Options.V_BOUND);
 		
 		// Array of coefficients
 		int[] c = new int[]{100000, 10000, 1000, 100, 10, 1};
@@ -47,12 +47,11 @@ public class ConstraintSolverExample {
 		model.addConstraint(Choco.eq(Choco.plus(donald, gerald), robert));
 		
 		// Add constraint of all different letters.
-		model.addConstraint(Choco.allDifferent(new IntegerVariable[]{d, o, n, a, l, g, e, r, b, t}));
+		model.addConstraint(Choco.allDifferent(d, o, n, a, l, g, e, r, b, t));
 		
 		// Build a solver, read the model and solve it
 		Solver s = new CPSolver();
 		s.read(model);
-		
 		
 		long start = System.currentTimeMillis();
 		s.solve();

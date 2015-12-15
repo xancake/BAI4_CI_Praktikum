@@ -8,6 +8,10 @@
 			<attribute name="javadoc_location" value="http://www.antlr.org/api/Java/index.html"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="lib/choco-2.1.1-20101108.160635-17.jar"/>
+	<classpathentry kind="lib" path="lib/choco-2.1.1-20101108.160635-17.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="http://www.dcs.gla.ac.uk/~pat/cpM/jchoco/jchoco2.1.5/apidocs/"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
