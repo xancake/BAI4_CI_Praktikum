@@ -22,11 +22,11 @@ task
 	Constraint constraint = new Constraint($n1.number, $n2.number, $n3.number);
 	constraint.prepare();
 }	:
-	^(EQ ^(ADD n1=number n2=number) n3=number)
+	^(EQ ^(ADD n1=value n2=value) n3=value)
 	-> sum(number1={$n1.number}, number2={$n2.number}, number3={$n3.number})
 ;
 
-number returns [Number number]
+value returns [Number number]
 @after {
 	$number = new Number($symbols);
 }	:
