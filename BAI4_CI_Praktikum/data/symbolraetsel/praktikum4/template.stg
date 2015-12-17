@@ -1,7 +1,39 @@
 group template;
 
 sums(symbols,sums) ::= <<
-	<sums; separator="\n\n">
+package org.haw.cip.praktikum4.symbolraetsel;
+
+import choco.Choco;
+import choco.Options;
+import choco.cp.model.CPModel;
+import choco.cp.solver.CPSolver;
+import choco.kernel.model.Model;
+import choco.kernel.model.variables.integer.IntegerVariable;
+import choco.kernel.solver.Solver;
+
+public class SymbolraetselChocoSolver {
+	public static void main(String... args) {
+		Model model = new CPModel();
+		
+		<symbols:{symbol|IntegerVariable <symbol> = Choco.makeIntVar("<symbol>", 0, 9, Options.V_ENUM);<\n>}>
+		
+		!!!!!
+		TODO: Überträge und Regeln hinzufügen
+		
+		<sums; separator="\n\n">
+		!!!!!
+		
+		model.addConstraint(Choco.allDifferent(<symbols; separator=", ">));
+		
+		Solver s = new CPSolver();
+		if(s.solve()) {
+			System.out.println("Das Rätsel wurde gelöst!");
+			
+		} else {
+			System.out.println("Das Rätsel konnte nicht gelöst werden!");
+		}
+	}
+}
 >>
 
 sum(number1, number2, number3) ::= <<
