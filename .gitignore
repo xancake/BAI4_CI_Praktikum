@@ -1,6 +1,6 @@
 **/.settings/
 **/bin/
-**/output/
+output/
 *.class
 
 # Mobile Tools for Java (J2ME)
