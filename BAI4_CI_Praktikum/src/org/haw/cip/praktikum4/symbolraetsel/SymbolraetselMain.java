@@ -19,7 +19,7 @@ import org.haw.cip.praktikum3.symbolraetsel.SymbolraetselParser;
 import org.haw.cip.praktikum3.symbolraetsel.SymbolraetselTreeWalker;
 
 public class SymbolraetselMain {
-	private static final String TEMPLATE_FILE = "C:/Users/Lars/git/BAI4_CI_Praktikum/BAI4_CI_Praktikum/etc/symbolraetsel/antlr/praktikum/4/template.stg";
+	private static final String TEMPLATE_FILE = "symbolraetsel/praktikum4/template.stg";
 	
 	public static void main(String[] args) throws FileNotFoundException, IOException, RecognitionException {
 		if(args.length != 1) {
