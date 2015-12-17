@@ -1,4 +1,4 @@
-// $ANTLR 3.4 D:\\Dropbox\\Studium\\Semester 4\\Compiler und Interpreter\\Praktikum\\Praktikum 4\\1. symbolraetsel\\SymbolraetselEmitter.g 2015-12-15 15:56:22
+// $ANTLR 3.4 Z:\\git\\BAI4_CI_Praktikum\\BAI4_CI_Praktikum\\etc\\symbolraetsel\\antlr\\praktikum\\4\\SymbolraetselEmitter.g 2015-12-17 14:22:34
 package org.haw.cip.praktikum4.symbolraetsel;
 
 import java.util.Set;
@@ -65,7 +65,7 @@ public static class STAttrMap extends HashMap {
   }
 }
     public String[] getTokenNames() { return SymbolraetselEmitter.tokenNames; }
-    public String getGrammarFileName() { return "D:\\Dropbox\\Studium\\Semester 4\\Compiler und Interpreter\\Praktikum\\Praktikum 4\\1. symbolraetsel\\SymbolraetselEmitter.g"; }
+    public String getGrammarFileName() { return "Z:\\git\\BAI4_CI_Praktikum\\BAI4_CI_Praktikum\\etc\\symbolraetsel\\antlr\\praktikum\\4\\SymbolraetselEmitter.g"; }
 
 
     Set<Character> symbols = new HashSet<>();
@@ -79,7 +79,7 @@ public static class STAttrMap extends HashMap {
 
 
     // $ANTLR start "riddle"
-    // D:\\Dropbox\\Studium\\Semester 4\\Compiler und Interpreter\\Praktikum\\Praktikum 4\\1. symbolraetsel\\SymbolraetselEmitter.g:18:1: riddle : (tasks+= task )* -> sums(symbols=symbolssums=$tasks);
+    // Z:\\git\\BAI4_CI_Praktikum\\BAI4_CI_Praktikum\\etc\\symbolraetsel\\antlr\\praktikum\\4\\SymbolraetselEmitter.g:18:1: riddle : (tasks+= task )* -> sums(symbols=symbolssums=$tasks);
     public final SymbolraetselEmitter.riddle_return riddle() throws RecognitionException {
         SymbolraetselEmitter.riddle_return retval = new SymbolraetselEmitter.riddle_return();
         retval.start = input.LT(1);
@@ -88,10 +88,10 @@ public static class STAttrMap extends HashMap {
         List list_tasks=null;
         RuleReturnScope tasks = null;
         try {
-            // D:\\Dropbox\\Studium\\Semester 4\\Compiler und Interpreter\\Praktikum\\Praktikum 4\\1. symbolraetsel\\SymbolraetselEmitter.g:18:8: ( (tasks+= task )* -> sums(symbols=symbolssums=$tasks))
-            // D:\\Dropbox\\Studium\\Semester 4\\Compiler und Interpreter\\Praktikum\\Praktikum 4\\1. symbolraetsel\\SymbolraetselEmitter.g:18:10: (tasks+= task )*
+            // Z:\\git\\BAI4_CI_Praktikum\\BAI4_CI_Praktikum\\etc\\symbolraetsel\\antlr\\praktikum\\4\\SymbolraetselEmitter.g:18:8: ( (tasks+= task )* -> sums(symbols=symbolssums=$tasks))
+            // Z:\\git\\BAI4_CI_Praktikum\\BAI4_CI_Praktikum\\etc\\symbolraetsel\\antlr\\praktikum\\4\\SymbolraetselEmitter.g:18:10: (tasks+= task )*
             {
-            // D:\\Dropbox\\Studium\\Semester 4\\Compiler und Interpreter\\Praktikum\\Praktikum 4\\1. symbolraetsel\\SymbolraetselEmitter.g:18:15: (tasks+= task )*
+            // Z:\\git\\BAI4_CI_Praktikum\\BAI4_CI_Praktikum\\etc\\symbolraetsel\\antlr\\praktikum\\4\\SymbolraetselEmitter.g:18:15: (tasks+= task )*
             loop1:
             do {
                 int alt1=2;
@@ -104,7 +104,7 @@ public static class STAttrMap extends HashMap {
 
                 switch (alt1) {
             	case 1 :
-            	    // D:\\Dropbox\\Studium\\Semester 4\\Compiler und Interpreter\\Praktikum\\Praktikum 4\\1. symbolraetsel\\SymbolraetselEmitter.g:18:15: tasks+= task
+            	    // Z:\\git\\BAI4_CI_Praktikum\\BAI4_CI_Praktikum\\etc\\symbolraetsel\\antlr\\praktikum\\4\\SymbolraetselEmitter.g:18:15: tasks+= task
             	    {
             	    pushFollow(FOLLOW_task_in_riddle65);
             	    tasks=task();
@@ -156,22 +156,22 @@ public static class STAttrMap extends HashMap {
 
 
     // $ANTLR start "task"
-    // D:\\Dropbox\\Studium\\Semester 4\\Compiler und Interpreter\\Praktikum\\Praktikum 4\\1. symbolraetsel\\SymbolraetselEmitter.g:20:1: task : ^( EQ ^( ADD n1= number n2= number ) n3= number ) -> sum(number1=$n1.numbernumber2=$n2.numbernumber3=$n3.number);
+    // Z:\\git\\BAI4_CI_Praktikum\\BAI4_CI_Praktikum\\etc\\symbolraetsel\\antlr\\praktikum\\4\\SymbolraetselEmitter.g:20:1: task : ^( EQ ^( ADD n1= value n2= value ) n3= value ) -> sum(number1=$n1.numbernumber2=$n2.numbernumber3=$n3.number);
     public final SymbolraetselEmitter.task_return task() throws RecognitionException {
         SymbolraetselEmitter.task_return retval = new SymbolraetselEmitter.task_return();
         retval.start = input.LT(1);
 
 
-        SymbolraetselEmitter.number_return n1 =null;
+        SymbolraetselEmitter.value_return n1 =null;
 
-        SymbolraetselEmitter.number_return n2 =null;
+        SymbolraetselEmitter.value_return n2 =null;
 
-        SymbolraetselEmitter.number_return n3 =null;
+        SymbolraetselEmitter.value_return n3 =null;
 
 
         try {
-            // D:\\Dropbox\\Studium\\Semester 4\\Compiler und Interpreter\\Praktikum\\Praktikum 4\\1. symbolraetsel\\SymbolraetselEmitter.g:24:3: ( ^( EQ ^( ADD n1= number n2= number ) n3= number ) -> sum(number1=$n1.numbernumber2=$n2.numbernumber3=$n3.number))
-            // D:\\Dropbox\\Studium\\Semester 4\\Compiler und Interpreter\\Praktikum\\Praktikum 4\\1. symbolraetsel\\SymbolraetselEmitter.g:25:2: ^( EQ ^( ADD n1= number n2= number ) n3= number )
+            // Z:\\git\\BAI4_CI_Praktikum\\BAI4_CI_Praktikum\\etc\\symbolraetsel\\antlr\\praktikum\\4\\SymbolraetselEmitter.g:24:3: ( ^( EQ ^( ADD n1= value n2= value ) n3= value ) -> sum(number1=$n1.numbernumber2=$n2.numbernumber3=$n3.number))
+            // Z:\\git\\BAI4_CI_Praktikum\\BAI4_CI_Praktikum\\etc\\symbolraetsel\\antlr\\praktikum\\4\\SymbolraetselEmitter.g:25:2: ^( EQ ^( ADD n1= value n2= value ) n3= value )
             {
             match(input,EQ,FOLLOW_EQ_in_task95); 
 
@@ -179,14 +179,14 @@ public static class STAttrMap extends HashMap {
             match(input,ADD,FOLLOW_ADD_in_task98); 
 
             match(input, Token.DOWN, null); 
-            pushFollow(FOLLOW_number_in_task102);
-            n1=number();
+            pushFollow(FOLLOW_value_in_task102);
+            n1=value();
 
             state._fsp--;
 
 
-            pushFollow(FOLLOW_number_in_task106);
-            n2=number();
+            pushFollow(FOLLOW_value_in_task106);
+            n2=value();
 
             state._fsp--;
 
@@ -194,8 +194,8 @@ public static class STAttrMap extends HashMap {
             match(input, Token.UP, null); 
 
 
-            pushFollow(FOLLOW_number_in_task111);
-            n3=number();
+            pushFollow(FOLLOW_value_in_task111);
+            n3=value();
 
             state._fsp--;
 
@@ -214,8 +214,8 @@ public static class STAttrMap extends HashMap {
             }
 
 
-            	Constraint constraint = new Constraint((n1!=null?n1.number:null), (n2!=null?n2.number:null), (n3!=null?n3.number:null));
-            	constraint.prepare();
+            Constraint constraint = new Constraint((n1!=null?n1.number:null), (n2!=null?n2.number:null), (n3!=null?n3.number:null));
+            constraint.prepare();
 
         }
         catch (RecognitionException re) {
@@ -231,7 +231,7 @@ public static class STAttrMap extends HashMap {
     // $ANTLR end "task"
 
 
-    public static class number_return extends TreeRuleReturnScope {
+    public static class value_return extends TreeRuleReturnScope {
         public Number number;
         public StringTemplate st;
         public Object getTemplate() { return st; }
@@ -239,10 +239,10 @@ public static class STAttrMap extends HashMap {
     };
 
 
-    // $ANTLR start "number"
-    // D:\\Dropbox\\Studium\\Semester 4\\Compiler und Interpreter\\Praktikum\\Praktikum 4\\1. symbolraetsel\\SymbolraetselEmitter.g:29:1: number returns [Number number] : ^( VALUE (symbols+= SYMBOL )+ ) ;
-    public final SymbolraetselEmitter.number_return number() throws RecognitionException {
-        SymbolraetselEmitter.number_return retval = new SymbolraetselEmitter.number_return();
+    // $ANTLR start "value"
+    // Z:\\git\\BAI4_CI_Praktikum\\BAI4_CI_Praktikum\\etc\\symbolraetsel\\antlr\\praktikum\\4\\SymbolraetselEmitter.g:29:1: value returns [Number number] : ^( VALUE (symbols+= SYMBOL )+ ) ;
+    public final SymbolraetselEmitter.value_return value() throws RecognitionException {
+        SymbolraetselEmitter.value_return retval = new SymbolraetselEmitter.value_return();
         retval.start = input.LT(1);
 
 
@@ -250,13 +250,13 @@ public static class STAttrMap extends HashMap {
         List list_symbols=null;
 
         try {
-            // D:\\Dropbox\\Studium\\Semester 4\\Compiler und Interpreter\\Praktikum\\Praktikum 4\\1. symbolraetsel\\SymbolraetselEmitter.g:32:3: ( ^( VALUE (symbols+= SYMBOL )+ ) )
-            // D:\\Dropbox\\Studium\\Semester 4\\Compiler und Interpreter\\Praktikum\\Praktikum 4\\1. symbolraetsel\\SymbolraetselEmitter.g:33:2: ^( VALUE (symbols+= SYMBOL )+ )
+            // Z:\\git\\BAI4_CI_Praktikum\\BAI4_CI_Praktikum\\etc\\symbolraetsel\\antlr\\praktikum\\4\\SymbolraetselEmitter.g:32:3: ( ^( VALUE (symbols+= SYMBOL )+ ) )
+            // Z:\\git\\BAI4_CI_Praktikum\\BAI4_CI_Praktikum\\etc\\symbolraetsel\\antlr\\praktikum\\4\\SymbolraetselEmitter.g:33:2: ^( VALUE (symbols+= SYMBOL )+ )
             {
-            match(input,VALUE,FOLLOW_VALUE_in_number152); 
+            match(input,VALUE,FOLLOW_VALUE_in_value152); 
 
             match(input, Token.DOWN, null); 
-            // D:\\Dropbox\\Studium\\Semester 4\\Compiler und Interpreter\\Praktikum\\Praktikum 4\\1. symbolraetsel\\SymbolraetselEmitter.g:33:17: (symbols+= SYMBOL )+
+            // Z:\\git\\BAI4_CI_Praktikum\\BAI4_CI_Praktikum\\etc\\symbolraetsel\\antlr\\praktikum\\4\\SymbolraetselEmitter.g:33:17: (symbols+= SYMBOL )+
             int cnt2=0;
             loop2:
             do {
@@ -270,9 +270,9 @@ public static class STAttrMap extends HashMap {
 
                 switch (alt2) {
             	case 1 :
-            	    // D:\\Dropbox\\Studium\\Semester 4\\Compiler und Interpreter\\Praktikum\\Praktikum 4\\1. symbolraetsel\\SymbolraetselEmitter.g:33:17: symbols+= SYMBOL
+            	    // Z:\\git\\BAI4_CI_Praktikum\\BAI4_CI_Praktikum\\etc\\symbolraetsel\\antlr\\praktikum\\4\\SymbolraetselEmitter.g:33:17: symbols+= SYMBOL
             	    {
-            	    symbols=(CommonTree)match(input,SYMBOL,FOLLOW_SYMBOL_in_number156); 
+            	    symbols=(CommonTree)match(input,SYMBOL,FOLLOW_SYMBOL_in_value156); 
             	    if (list_symbols==null) list_symbols=new ArrayList();
             	    list_symbols.add(symbols);
 
@@ -296,7 +296,7 @@ public static class STAttrMap extends HashMap {
             }
 
 
-            	retval.number = new Number(list_symbols);
+            retval.number = new Number(list_symbols);
 
         }
         catch (RecognitionException re) {
@@ -309,7 +309,7 @@ public static class STAttrMap extends HashMap {
         }
         return retval;
     }
-    // $ANTLR end "number"
+    // $ANTLR end "value"
 
     // Delegated rules
 
@@ -319,10 +319,10 @@ public static class STAttrMap extends HashMap {
     public static final BitSet FOLLOW_task_in_riddle65 = new BitSet(new long[]{0x0000000000000022L});
     public static final BitSet FOLLOW_EQ_in_task95 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_ADD_in_task98 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_number_in_task102 = new BitSet(new long[]{0x0000000000000100L});
-    public static final BitSet FOLLOW_number_in_task106 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_number_in_task111 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_VALUE_in_number152 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_SYMBOL_in_number156 = new BitSet(new long[]{0x0000000000000088L});
+    public static final BitSet FOLLOW_value_in_task102 = new BitSet(new long[]{0x0000000000000100L});
+    public static final BitSet FOLLOW_value_in_task106 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_value_in_task111 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_VALUE_in_value152 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_SYMBOL_in_value156 = new BitSet(new long[]{0x0000000000000088L});
 
 }
