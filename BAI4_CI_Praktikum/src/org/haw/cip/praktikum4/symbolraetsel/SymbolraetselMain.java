@@ -1,12 +1,14 @@
 package org.haw.cip.praktikum4.symbolraetsel;
 
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-
+import java.io.Writer;
 import org.antlr.runtime.ANTLRInputStream;
 import org.antlr.runtime.CommonTokenStream;
 import org.antlr.runtime.RecognitionException;
@@ -46,8 +48,15 @@ public class SymbolraetselMain {
 		SymbolraetselEmitter emitter = new SymbolraetselEmitter(nodes2);
 		emitter.setTemplateLib(new StringTemplateGroup(new InputStreamReader(getInputStream(TEMPLATE_FILE), "ISO-8859-15"), AngleBracketTemplateLexer.class));
 		SymbolraetselEmitter.riddle_return emitter_r = emitter.riddle();
+		String output = emitter_r.getTemplate().toString();
 		System.out.println();
-		System.out.println(emitter_r.getTemplate().toString());
+		System.out.println(output);
+		
+		File outputFile = new File("src/org/haw/cip/praktikum4/symbolraetsel/SymbolraetselChocoSolver.java");
+		Writer writer = new BufferedWriter(new FileWriter(outputFile));
+		writer.write(output);
+		writer.flush();
+		writer.close();
 	}
 	
 	private static InputStream getInputStream(String path) throws FileNotFoundException, IOException {
