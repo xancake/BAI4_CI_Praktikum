@@ -46,7 +46,7 @@ public class SymbolraetselMain {
 		SymbolraetselEmitter emitter = new SymbolraetselEmitter(nodes2);
 		emitter.setTemplateLib(new StringTemplateGroup(new InputStreamReader(getInputStream(TEMPLATE_FILE), "ISO-8859-15"), AngleBracketTemplateLexer.class));
 		SymbolraetselEmitter.riddle_return emitter_r = emitter.riddle();
-		System.out.println("\n\nausgabe");
+		System.out.println();
 		System.out.println(emitter_r.getTemplate().toString());
 	}
 	
