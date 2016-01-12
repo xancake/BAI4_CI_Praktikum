@@ -12,10 +12,10 @@ import java.util.Set;
 import java.util.HashSet;}
 
 @members{
-Set<Character> symbols = new HashSet<>();
+Set<Character> characters = new HashSet<>();
 }
 
-riddle	:	tasks+=task* -> sums(symbols={symbols}, sums={$tasks});
+riddle	:	tasks+=task* -> sums(symbols={characters}, sums={$tasks});
 
 task
 @after {
@@ -26,5 +26,5 @@ constraint.prepare();
 value returns [Number number]
 @after {
 $number = new Number($symbols);
-symbols.addAll($number.getCharacters());
+characters.addAll($number.getCharacters());
 }	:	^(VALUE symbols+=SYMBOL+);
