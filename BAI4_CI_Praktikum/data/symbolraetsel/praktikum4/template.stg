@@ -1,6 +1,6 @@
 group template;
 
-sums(symbols,sums) ::= <<
+sums(symbols,tasks) ::= <<
 package org.haw.cip.praktikum4.symbolraetsel;
 
 import choco.Choco;
@@ -25,7 +25,7 @@ public class SymbolraetselChocoSolver {
 		int aufgabe = 1, uebertrag;
 		List\<IntegerVariable\> u;
 		
-		<sums; separator="\n\n">
+		<tasks; separator="\n\n">
 		
 		// Constraint dafür, dass alle Zeichen unterschiedlich sein müssen
 		model.addConstraint(Choco.allDifferent(<symbols; separator=", ">));

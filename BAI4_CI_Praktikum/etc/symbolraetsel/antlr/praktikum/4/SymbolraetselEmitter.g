@@ -15,7 +15,7 @@ import java.util.HashSet;}
 Set<Character> characters = new HashSet<>();
 }
 
-riddle	:	tasks+=task* -> sums(symbols={characters}, sums={$tasks});
+riddle	:	tasks+=task* -> sums(symbols={characters}, tasks={$tasks});
 
 task
 @after {

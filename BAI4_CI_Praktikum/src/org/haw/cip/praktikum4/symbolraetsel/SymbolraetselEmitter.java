@@ -1,4 +1,4 @@
-// $ANTLR 3.4 Z:\\git\\BAI4_CI_Praktikum\\BAI4_CI_Praktikum\\etc\\symbolraetsel\\antlr\\praktikum\\4\\SymbolraetselEmitter.g 2016-01-12 10:35:37
+// $ANTLR 3.4 Z:\\git\\BAI4_CI_Praktikum\\BAI4_CI_Praktikum\\etc\\symbolraetsel\\antlr\\praktikum\\4\\SymbolraetselEmitter.g 2016-01-12 13:19:32
 package org.haw.cip.praktikum4.symbolraetsel;
 
 import java.util.Set;
@@ -79,7 +79,7 @@ public static class STAttrMap extends HashMap {
 
 
     // $ANTLR start "riddle"
-    // Z:\\git\\BAI4_CI_Praktikum\\BAI4_CI_Praktikum\\etc\\symbolraetsel\\antlr\\praktikum\\4\\SymbolraetselEmitter.g:18:1: riddle : (tasks+= task )* -> sums(symbols=characterssums=$tasks);
+    // Z:\\git\\BAI4_CI_Praktikum\\BAI4_CI_Praktikum\\etc\\symbolraetsel\\antlr\\praktikum\\4\\SymbolraetselEmitter.g:18:1: riddle : (tasks+= task )* -> sums(symbols=characterstasks=$tasks);
     public final SymbolraetselEmitter.riddle_return riddle() throws RecognitionException {
         SymbolraetselEmitter.riddle_return retval = new SymbolraetselEmitter.riddle_return();
         retval.start = input.LT(1);
@@ -88,7 +88,7 @@ public static class STAttrMap extends HashMap {
         List list_tasks=null;
         RuleReturnScope tasks = null;
         try {
-            // Z:\\git\\BAI4_CI_Praktikum\\BAI4_CI_Praktikum\\etc\\symbolraetsel\\antlr\\praktikum\\4\\SymbolraetselEmitter.g:18:8: ( (tasks+= task )* -> sums(symbols=characterssums=$tasks))
+            // Z:\\git\\BAI4_CI_Praktikum\\BAI4_CI_Praktikum\\etc\\symbolraetsel\\antlr\\praktikum\\4\\SymbolraetselEmitter.g:18:8: ( (tasks+= task )* -> sums(symbols=characterstasks=$tasks))
             // Z:\\git\\BAI4_CI_Praktikum\\BAI4_CI_Praktikum\\etc\\symbolraetsel\\antlr\\praktikum\\4\\SymbolraetselEmitter.g:18:10: (tasks+= task )*
             {
             // Z:\\git\\BAI4_CI_Praktikum\\BAI4_CI_Praktikum\\etc\\symbolraetsel\\antlr\\praktikum\\4\\SymbolraetselEmitter.g:18:15: (tasks+= task )*
@@ -125,9 +125,9 @@ public static class STAttrMap extends HashMap {
 
 
             // TEMPLATE REWRITE
-            // 18:23: -> sums(symbols=characterssums=$tasks)
+            // 18:23: -> sums(symbols=characterstasks=$tasks)
             {
-                retval.st = templateLib.getInstanceOf("sums",new STAttrMap().put("symbols", characters).put("sums", list_tasks));
+                retval.st = templateLib.getInstanceOf("sums",new STAttrMap().put("symbols", characters).put("tasks", list_tasks));
             }
 
 
