@@ -1,0 +1,6 @@
+  B  G  D  G
+  B  E  E  A
+ u3 u2 u1 u0
+------------
+  C  A  G  G
+ u0 u3 u2 u1
