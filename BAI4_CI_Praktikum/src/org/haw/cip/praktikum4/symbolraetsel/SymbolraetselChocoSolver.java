@@ -33,10 +33,12 @@ public class SymbolraetselChocoSolver {
 		
 		// Alle Überträge von Aufgabe X als Variable deklarieren
 		u = new ArrayList<>();
+		u.add(Choco.makeIntVar("a" + aufgabe + "u" + u.size(), 0, 0, Options.V_ENUM));
 		u.add(Choco.makeIntVar("a" + aufgabe + "u" + u.size(), 0, 1, Options.V_ENUM));
 		u.add(Choco.makeIntVar("a" + aufgabe + "u" + u.size(), 0, 1, Options.V_ENUM));
 		u.add(Choco.makeIntVar("a" + aufgabe + "u" + u.size(), 0, 1, Options.V_ENUM));
 		u.add(Choco.makeIntVar("a" + aufgabe + "u" + u.size(), 0, 1, Options.V_ENUM));
+		u.remove(u.size()-1);
 
 		// Constraints für Aufgabe X
 		uebertrag = u.size();
@@ -48,10 +50,12 @@ public class SymbolraetselChocoSolver {
 
 		// Alle Überträge von Aufgabe X als Variable deklarieren
 		u = new ArrayList<>();
+		u.add(Choco.makeIntVar("a" + aufgabe + "u" + u.size(), 0, 0, Options.V_ENUM));
 		u.add(Choco.makeIntVar("a" + aufgabe + "u" + u.size(), 0, 1, Options.V_ENUM));
 		u.add(Choco.makeIntVar("a" + aufgabe + "u" + u.size(), 0, 1, Options.V_ENUM));
 		u.add(Choco.makeIntVar("a" + aufgabe + "u" + u.size(), 0, 1, Options.V_ENUM));
 		u.add(Choco.makeIntVar("a" + aufgabe + "u" + u.size(), 0, 1, Options.V_ENUM));
+		u.remove(u.size()-1);
 
 		// Constraints für Aufgabe X
 		uebertrag = u.size();
@@ -63,10 +67,12 @@ public class SymbolraetselChocoSolver {
 
 		// Alle Überträge von Aufgabe X als Variable deklarieren
 		u = new ArrayList<>();
+		u.add(Choco.makeIntVar("a" + aufgabe + "u" + u.size(), 0, 0, Options.V_ENUM));
 		u.add(Choco.makeIntVar("a" + aufgabe + "u" + u.size(), 0, 1, Options.V_ENUM));
 		u.add(Choco.makeIntVar("a" + aufgabe + "u" + u.size(), 0, 1, Options.V_ENUM));
 		u.add(Choco.makeIntVar("a" + aufgabe + "u" + u.size(), 0, 1, Options.V_ENUM));
 		u.add(Choco.makeIntVar("a" + aufgabe + "u" + u.size(), 0, 1, Options.V_ENUM));
+		u.remove(u.size()-1);
 
 		// Constraints für Aufgabe X
 		uebertrag = u.size();
@@ -78,10 +84,12 @@ public class SymbolraetselChocoSolver {
 
 		// Alle Überträge von Aufgabe X als Variable deklarieren
 		u = new ArrayList<>();
+		u.add(Choco.makeIntVar("a" + aufgabe + "u" + u.size(), 0, 0, Options.V_ENUM));
 		u.add(Choco.makeIntVar("a" + aufgabe + "u" + u.size(), 0, 1, Options.V_ENUM));
 		u.add(Choco.makeIntVar("a" + aufgabe + "u" + u.size(), 0, 1, Options.V_ENUM));
 		u.add(Choco.makeIntVar("a" + aufgabe + "u" + u.size(), 0, 1, Options.V_ENUM));
 		u.add(Choco.makeIntVar("a" + aufgabe + "u" + u.size(), 0, 1, Options.V_ENUM));
+		u.remove(u.size()-1);
 
 		// Constraints für Aufgabe X
 		uebertrag = u.size();
@@ -93,10 +101,12 @@ public class SymbolraetselChocoSolver {
 
 		// Alle Überträge von Aufgabe X als Variable deklarieren
 		u = new ArrayList<>();
+		u.add(Choco.makeIntVar("a" + aufgabe + "u" + u.size(), 0, 0, Options.V_ENUM));
 		u.add(Choco.makeIntVar("a" + aufgabe + "u" + u.size(), 0, 1, Options.V_ENUM));
 		u.add(Choco.makeIntVar("a" + aufgabe + "u" + u.size(), 0, 1, Options.V_ENUM));
 		u.add(Choco.makeIntVar("a" + aufgabe + "u" + u.size(), 0, 1, Options.V_ENUM));
 		u.add(Choco.makeIntVar("a" + aufgabe + "u" + u.size(), 0, 1, Options.V_ENUM));
+		u.remove(u.size()-1);
 
 		// Constraints für Aufgabe X
 		uebertrag = u.size();
@@ -108,10 +118,12 @@ public class SymbolraetselChocoSolver {
 
 		// Alle Überträge von Aufgabe X als Variable deklarieren
 		u = new ArrayList<>();
+		u.add(Choco.makeIntVar("a" + aufgabe + "u" + u.size(), 0, 0, Options.V_ENUM));
 		u.add(Choco.makeIntVar("a" + aufgabe + "u" + u.size(), 0, 1, Options.V_ENUM));
 		u.add(Choco.makeIntVar("a" + aufgabe + "u" + u.size(), 0, 1, Options.V_ENUM));
 		u.add(Choco.makeIntVar("a" + aufgabe + "u" + u.size(), 0, 1, Options.V_ENUM));
 		u.add(Choco.makeIntVar("a" + aufgabe + "u" + u.size(), 0, 1, Options.V_ENUM));
+		u.remove(u.size()-1);
 
 		// Constraints für Aufgabe X
 		uebertrag = u.size();
@@ -125,6 +137,7 @@ public class SymbolraetselChocoSolver {
 		model.addConstraint(Choco.allDifferent(A, B, C, D, E, F, G, H, J, K));
 		
 		Solver s = new CPSolver();
+		s.read(model);
 		if(s.solve()) {
 			System.out.println("Das Rätsel wurde gelöst!");
 			System.out.println(A.getName() + " = " + s.getVar(A).getVal());

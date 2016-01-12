@@ -31,6 +31,7 @@ public class SymbolraetselChocoSolver {
 		model.addConstraint(Choco.allDifferent(<symbols; separator=", ">));
 		
 		Solver s = new CPSolver();
+		s.read(model);
 		if(s.solve()) {
 			System.out.println("Das Rätsel wurde gelöst!");
 			<symbols : {symbol |System.out.println(<symbol>.getName() + " = " + s.getVar(<symbol>).getVal());}; separator="\n">
@@ -44,9 +45,11 @@ public class SymbolraetselChocoSolver {
 sum(number1, number2, number3) ::= <<
 // Alle Überträge von Aufgabe X als Variable deklarieren
 u = new ArrayList\<\>();
+u.add(Choco.makeIntVar("a" + aufgabe + "u" + u.size(), 0, 0, Options.V_ENUM));
 <number1.characters, number2.characters, number3.characters :
 	{c1, c2, c3 |u.add(Choco.makeIntVar("a" + aufgabe + "u" + u.size(), 0, 1, Options.V_ENUM));}
 ; separator="\n">
+u.remove(u.size()-1);
 
 // Constraints für Aufgabe X
 uebertrag = u.size();
