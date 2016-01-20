@@ -23,13 +23,12 @@ import org.haw.cip.praktikum3.symbolraetsel.SymbolraetselTreeWalker;
 public class SymbolraetselMain {
 	private static final String TEMPLATE_FILE = "symbolraetsel/praktikum4/template.stg";
 	
+	private static final String DEFAULT_PARSE_FILE = "symbolraetsel/example/example-positive 1 - formatiert.txt";
+	
 	public static void main(String[] args) throws FileNotFoundException, IOException, RecognitionException {
-		if(args.length != 1) {
-			System.out.println("Es muss ein Dateiname angegeben werden!");
-			System.exit(1);
-		}
+		String parseFileName = getParseFileName(args);
 		
-		ANTLRInputStream input = new ANTLRInputStream(getInputStream(args[0]));
+		ANTLRInputStream input = new ANTLRInputStream(getInputStream(parseFileName));
 		SymbolraetselLexer lexer = new SymbolraetselLexer(input);
 		CommonTokenStream tokens = new CommonTokenStream(lexer);
 		SymbolraetselParser parser = new SymbolraetselParser(tokens);
@@ -57,6 +56,14 @@ public class SymbolraetselMain {
 		writer.write(output);
 		writer.flush();
 		writer.close();
+	}
+	
+	private static String getParseFileName(String... args) {
+		switch(args.length) {
+			case 0:  return DEFAULT_PARSE_FILE;
+			case 1:  return args[0];
+			default: throw new IllegalArgumentException("Es darf nur EIN Dateiname oder gar nichts angegeben werden!");
+		}
 	}
 	
 	private static InputStream getInputStream(String path) throws FileNotFoundException, IOException {

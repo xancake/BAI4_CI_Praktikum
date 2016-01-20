@@ -5,7 +5,6 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-
 import org.antlr.runtime.ANTLRInputStream;
 import org.antlr.runtime.CommonTokenStream;
 import org.antlr.runtime.RecognitionException;
@@ -13,13 +12,12 @@ import org.antlr.runtime.tree.CommonTree;
 import org.antlr.runtime.tree.CommonTreeNodeStream;
 
 public class SymbolraetselMain {
+	private static final String DEFAULT_PARSE_FILE = "symbolraetsel/example/example-positive 1 - formatiert.txt";
+	
 	public static void main(String[] args) throws FileNotFoundException, IOException, RecognitionException {
-		if(args.length != 1) {
-			System.out.println("Es muss ein Dateiname angegeben werden!");
-			System.exit(1);
-		}
+		String parseFileName = getParseFileName(args);
 		
-		ANTLRInputStream input = new ANTLRInputStream(getInputStream(args[0]));
+		ANTLRInputStream input = new ANTLRInputStream(getInputStream(parseFileName));
 		SymbolraetselLexer lexer = new SymbolraetselLexer(input);
 		CommonTokenStream tokens = new CommonTokenStream(lexer);
 		
@@ -33,6 +31,14 @@ public class SymbolraetselMain {
 		SymbolraetselTreeWalker.riddle_return walker_r = walker.riddle();
 		CommonTree modifiedAST = (CommonTree)walker_r.getTree();
 		System.out.println(modifiedAST.toStringTree());
+	}
+	
+	private static String getParseFileName(String... args) {
+		switch(args.length) {
+			case 0:  return DEFAULT_PARSE_FILE;
+			case 1:  return args[0];
+			default: throw new IllegalArgumentException("Es darf nur EIN Dateiname oder gar nichts angegeben werden!");
+		}
 	}
 	
 	private static InputStream getInputStream(String path) throws FileNotFoundException, IOException {
