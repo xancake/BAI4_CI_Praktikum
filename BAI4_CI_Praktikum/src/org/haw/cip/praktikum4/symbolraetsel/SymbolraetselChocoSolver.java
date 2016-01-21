@@ -27,20 +27,18 @@ public class SymbolraetselChocoSolver {
 		IntegerVariable J = Choco.makeIntVar("J", 0, 9, Options.V_ENUM);
 		IntegerVariable K = Choco.makeIntVar("K", 0, 9, Options.V_ENUM);
 		
-		// Hilfsvariablen für die Überträge
+		// Hilfsvariablen fuer die Uebertraege
 		int aufgabe = 1, uebertrag;
 		List<IntegerVariable> u;
 		
-		// Alle Überträge von Aufgabe X als Variable deklarieren
+		// Alle Uebertraege von Aufgabe X als Variable deklarieren
 		u = new ArrayList<>();
 		u.add(Choco.makeIntVar("a" + aufgabe + "u" + u.size(), 0, 0, Options.V_ENUM));
 		u.add(Choco.makeIntVar("a" + aufgabe + "u" + u.size(), 0, 1, Options.V_ENUM));
 		u.add(Choco.makeIntVar("a" + aufgabe + "u" + u.size(), 0, 1, Options.V_ENUM));
 		u.add(Choco.makeIntVar("a" + aufgabe + "u" + u.size(), 0, 1, Options.V_ENUM));
-		u.add(Choco.makeIntVar("a" + aufgabe + "u" + u.size(), 0, 1, Options.V_ENUM));
-		u.remove(u.size()-1);
 
-		// Constraints für Aufgabe X
+		// Constraints fuer Aufgabe X
 		uebertrag = u.size();
 		model.addConstraint(Choco.eq(Choco.plus(Choco.plus(B, B), u.get(--uebertrag)), Choco.plus(C, Choco.mult(u.get((uebertrag+1)%u.size()), 10))));
 		model.addConstraint(Choco.eq(Choco.plus(Choco.plus(G, E), u.get(--uebertrag)), Choco.plus(A, Choco.mult(u.get((uebertrag+1)%u.size()), 10))));
@@ -48,16 +46,14 @@ public class SymbolraetselChocoSolver {
 		model.addConstraint(Choco.eq(Choco.plus(Choco.plus(G, A), u.get(--uebertrag)), Choco.plus(G, Choco.mult(u.get((uebertrag+1)%u.size()), 10))));
 		aufgabe++;
 
-		// Alle Überträge von Aufgabe X als Variable deklarieren
+		// Alle Uebertraege von Aufgabe X als Variable deklarieren
 		u = new ArrayList<>();
 		u.add(Choco.makeIntVar("a" + aufgabe + "u" + u.size(), 0, 0, Options.V_ENUM));
 		u.add(Choco.makeIntVar("a" + aufgabe + "u" + u.size(), 0, 1, Options.V_ENUM));
 		u.add(Choco.makeIntVar("a" + aufgabe + "u" + u.size(), 0, 1, Options.V_ENUM));
 		u.add(Choco.makeIntVar("a" + aufgabe + "u" + u.size(), 0, 1, Options.V_ENUM));
-		u.add(Choco.makeIntVar("a" + aufgabe + "u" + u.size(), 0, 1, Options.V_ENUM));
-		u.remove(u.size()-1);
 
-		// Constraints für Aufgabe X
+		// Constraints fuer Aufgabe X
 		uebertrag = u.size();
 		model.addConstraint(Choco.eq(Choco.plus(Choco.plus(C, Choco.ZERO), u.get(--uebertrag)), Choco.plus(C, Choco.mult(u.get((uebertrag+1)%u.size()), 10))));
 		model.addConstraint(Choco.eq(Choco.plus(Choco.plus(A, J), u.get(--uebertrag)), Choco.plus(K, Choco.mult(u.get((uebertrag+1)%u.size()), 10))));
@@ -65,16 +61,14 @@ public class SymbolraetselChocoSolver {
 		model.addConstraint(Choco.eq(Choco.plus(Choco.plus(G, K), u.get(--uebertrag)), Choco.plus(F, Choco.mult(u.get((uebertrag+1)%u.size()), 10))));
 		aufgabe++;
 
-		// Alle Überträge von Aufgabe X als Variable deklarieren
+		// Alle Uebertraege von Aufgabe X als Variable deklarieren
 		u = new ArrayList<>();
 		u.add(Choco.makeIntVar("a" + aufgabe + "u" + u.size(), 0, 0, Options.V_ENUM));
 		u.add(Choco.makeIntVar("a" + aufgabe + "u" + u.size(), 0, 1, Options.V_ENUM));
 		u.add(Choco.makeIntVar("a" + aufgabe + "u" + u.size(), 0, 1, Options.V_ENUM));
 		u.add(Choco.makeIntVar("a" + aufgabe + "u" + u.size(), 0, 1, Options.V_ENUM));
-		u.add(Choco.makeIntVar("a" + aufgabe + "u" + u.size(), 0, 1, Options.V_ENUM));
-		u.remove(u.size()-1);
 
-		// Constraints für Aufgabe X
+		// Constraints fuer Aufgabe X
 		uebertrag = u.size();
 		model.addConstraint(Choco.eq(Choco.plus(Choco.plus(F, Choco.ZERO), u.get(--uebertrag)), Choco.plus(G, Choco.mult(u.get((uebertrag+1)%u.size()), 10))));
 		model.addConstraint(Choco.eq(Choco.plus(Choco.plus(F, G), u.get(--uebertrag)), Choco.plus(B, Choco.mult(u.get((uebertrag+1)%u.size()), 10))));
@@ -82,16 +76,14 @@ public class SymbolraetselChocoSolver {
 		model.addConstraint(Choco.eq(Choco.plus(Choco.plus(B, B), u.get(--uebertrag)), Choco.plus(D, Choco.mult(u.get((uebertrag+1)%u.size()), 10))));
 		aufgabe++;
 
-		// Alle Überträge von Aufgabe X als Variable deklarieren
+		// Alle Uebertraege von Aufgabe X als Variable deklarieren
 		u = new ArrayList<>();
 		u.add(Choco.makeIntVar("a" + aufgabe + "u" + u.size(), 0, 0, Options.V_ENUM));
 		u.add(Choco.makeIntVar("a" + aufgabe + "u" + u.size(), 0, 1, Options.V_ENUM));
 		u.add(Choco.makeIntVar("a" + aufgabe + "u" + u.size(), 0, 1, Options.V_ENUM));
 		u.add(Choco.makeIntVar("a" + aufgabe + "u" + u.size(), 0, 1, Options.V_ENUM));
-		u.add(Choco.makeIntVar("a" + aufgabe + "u" + u.size(), 0, 1, Options.V_ENUM));
-		u.remove(u.size()-1);
 
-		// Constraints für Aufgabe X
+		// Constraints fuer Aufgabe X
 		uebertrag = u.size();
 		model.addConstraint(Choco.eq(Choco.plus(Choco.plus(B, C), u.get(--uebertrag)), Choco.plus(F, Choco.mult(u.get((uebertrag+1)%u.size()), 10))));
 		model.addConstraint(Choco.eq(Choco.plus(Choco.plus(G, K), u.get(--uebertrag)), Choco.plus(F, Choco.mult(u.get((uebertrag+1)%u.size()), 10))));
@@ -99,16 +91,14 @@ public class SymbolraetselChocoSolver {
 		model.addConstraint(Choco.eq(Choco.plus(Choco.plus(G, F), u.get(--uebertrag)), Choco.plus(B, Choco.mult(u.get((uebertrag+1)%u.size()), 10))));
 		aufgabe++;
 
-		// Alle Überträge von Aufgabe X als Variable deklarieren
+		// Alle Uebertraege von Aufgabe X als Variable deklarieren
 		u = new ArrayList<>();
 		u.add(Choco.makeIntVar("a" + aufgabe + "u" + u.size(), 0, 0, Options.V_ENUM));
 		u.add(Choco.makeIntVar("a" + aufgabe + "u" + u.size(), 0, 1, Options.V_ENUM));
 		u.add(Choco.makeIntVar("a" + aufgabe + "u" + u.size(), 0, 1, Options.V_ENUM));
 		u.add(Choco.makeIntVar("a" + aufgabe + "u" + u.size(), 0, 1, Options.V_ENUM));
-		u.add(Choco.makeIntVar("a" + aufgabe + "u" + u.size(), 0, 1, Options.V_ENUM));
-		u.remove(u.size()-1);
 
-		// Constraints für Aufgabe X
+		// Constraints fuer Aufgabe X
 		uebertrag = u.size();
 		model.addConstraint(Choco.eq(Choco.plus(Choco.plus(Choco.ZERO, Choco.ZERO), u.get(--uebertrag)), Choco.plus(B, Choco.mult(u.get((uebertrag+1)%u.size()), 10))));
 		model.addConstraint(Choco.eq(Choco.plus(Choco.plus(G, J), u.get(--uebertrag)), Choco.plus(E, Choco.mult(u.get((uebertrag+1)%u.size()), 10))));
@@ -116,16 +106,14 @@ public class SymbolraetselChocoSolver {
 		model.addConstraint(Choco.eq(Choco.plus(Choco.plus(B, K), u.get(--uebertrag)), Choco.plus(A, Choco.mult(u.get((uebertrag+1)%u.size()), 10))));
 		aufgabe++;
 
-		// Alle Überträge von Aufgabe X als Variable deklarieren
+		// Alle Uebertraege von Aufgabe X als Variable deklarieren
 		u = new ArrayList<>();
 		u.add(Choco.makeIntVar("a" + aufgabe + "u" + u.size(), 0, 0, Options.V_ENUM));
 		u.add(Choco.makeIntVar("a" + aufgabe + "u" + u.size(), 0, 1, Options.V_ENUM));
 		u.add(Choco.makeIntVar("a" + aufgabe + "u" + u.size(), 0, 1, Options.V_ENUM));
 		u.add(Choco.makeIntVar("a" + aufgabe + "u" + u.size(), 0, 1, Options.V_ENUM));
-		u.add(Choco.makeIntVar("a" + aufgabe + "u" + u.size(), 0, 1, Options.V_ENUM));
-		u.remove(u.size()-1);
 
-		// Constraints für Aufgabe X
+		// Constraints fuer Aufgabe X
 		uebertrag = u.size();
 		model.addConstraint(Choco.eq(Choco.plus(Choco.plus(C, C), u.get(--uebertrag)), Choco.plus(G, Choco.mult(u.get((uebertrag+1)%u.size()), 10))));
 		model.addConstraint(Choco.eq(Choco.plus(Choco.plus(A, A), u.get(--uebertrag)), Choco.plus(B, Choco.mult(u.get((uebertrag+1)%u.size()), 10))));
@@ -133,13 +121,13 @@ public class SymbolraetselChocoSolver {
 		model.addConstraint(Choco.eq(Choco.plus(Choco.plus(G, G), u.get(--uebertrag)), Choco.plus(D, Choco.mult(u.get((uebertrag+1)%u.size()), 10))));
 		aufgabe++;
 		
-		// Constraint dafür, dass alle Zeichen unterschiedlich sein müssen
+		// Constraint dafuer, dass alle Zeichen unterschiedlich sein muessen
 		model.addConstraint(Choco.allDifferent(A, B, C, D, E, F, G, H, J, K));
 		
 		Solver s = new CPSolver();
 		s.read(model);
 		if(s.solve()) {
-			System.out.println("Das Rätsel wurde gelöst!");
+			System.out.println("Das Raetsel wurde geloest!");
 			System.out.println(A.getName() + " = " + s.getVar(A).getVal());
 			System.out.println(B.getName() + " = " + s.getVar(B).getVal());
 			System.out.println(C.getName() + " = " + s.getVar(C).getVal());
@@ -151,7 +139,7 @@ public class SymbolraetselChocoSolver {
 			System.out.println(J.getName() + " = " + s.getVar(J).getVal());
 			System.out.println(K.getName() + " = " + s.getVar(K).getVal());
 		} else {
-			System.out.println("Das Rätsel konnte nicht gelöst werden!");
+			System.out.println("Das Raetsel konnte nicht geloest werden!");
 		}
 	}
 }

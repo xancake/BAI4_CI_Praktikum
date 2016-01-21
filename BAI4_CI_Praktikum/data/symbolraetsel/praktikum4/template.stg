@@ -21,37 +21,36 @@ public class SymbolraetselChocoSolver {
 		// Alle Buchstaben als Variable deklarieren
 		<symbols : {symbol |IntegerVariable <symbol> = Choco.makeIntVar("<symbol>", 0, 9, Options.V_ENUM);}; separator="\n">
 		
-		// Hilfsvariablen für die Überträge
+		// Hilfsvariablen fuer die Uebertraege
 		int aufgabe = 1, uebertrag;
 		List\<IntegerVariable\> u;
 		
 		<tasks; separator="\n\n">
 		
-		// Constraint dafür, dass alle Zeichen unterschiedlich sein müssen
+		// Constraint dafuer, dass alle Zeichen unterschiedlich sein muessen
 		model.addConstraint(Choco.allDifferent(<symbols; separator=", ">));
 		
 		Solver s = new CPSolver();
 		s.read(model);
 		if(s.solve()) {
-			System.out.println("Das Rätsel wurde gelöst!");
+			System.out.println("Das Raetsel wurde geloest!");
 			<symbols : {symbol |System.out.println(<symbol>.getName() + " = " + s.getVar(<symbol>).getVal());}; separator="\n">
 		} else {
-			System.out.println("Das Rätsel konnte nicht gelöst werden!");
+			System.out.println("Das Raetsel konnte nicht geloest werden!");
 		}
 	}
 }
 >>
 
 sum(number1, number2, number3) ::= <<
-// Alle Überträge von Aufgabe X als Variable deklarieren
+// Alle Uebertraege von Aufgabe X als Variable deklarieren
 u = new ArrayList\<\>();
 u.add(Choco.makeIntVar("a" + aufgabe + "u" + u.size(), 0, 0, Options.V_ENUM));
-<number1.characters, number2.characters, number3.characters :
+<trunc(number1.characters), trunc(number2.characters), trunc(number3.characters) :
 	{c1, c2, c3 |u.add(Choco.makeIntVar("a" + aufgabe + "u" + u.size(), 0, 1, Options.V_ENUM));}
 ; separator="\n">
-u.remove(u.size()-1);
 
-// Constraints für Aufgabe X
+// Constraints fuer Aufgabe X
 uebertrag = u.size();
 <number1.characters, number2.characters, number3.characters :
 	{c1, c2, c3 |model.addConstraint(Choco.eq(Choco.plus(Choco.plus(<if(c1)><c1><else>Choco.ZERO<endif>, <if(c2)><c2><else>Choco.ZERO<endif>), u.get(--uebertrag)), Choco.plus(<if(c3)><c3><else>Choco.ZERO<endif>, Choco.mult(u.get((uebertrag+1)%u.size()), 10))));}
